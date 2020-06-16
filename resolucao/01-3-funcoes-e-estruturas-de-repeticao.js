@@ -32,7 +32,7 @@ for (let i = 0; i < usuarios.length; i++) {
 
 //Exercicio 03
 
-const usuariox = [
+const pessoas = [
     {
       nome: "Salvio",
       receitas: [115.3, 48.7, 98.3, 14.5],
@@ -50,23 +50,35 @@ const usuariox = [
     }
   ];
 
-for (let usuario of usuariox){
-    calculaSaldo(usuario.receitas, usuario.despesas)
+
+
+function somaNumeros(numeros){
+    var soma = 0
+
+    for(let numero of numeros){
+        soma = soma + numero
+    }
+
+    return soma
 }
 
 function calculaSaldo(receitas, despesas){
-    receitas = somaNumeros (usuariox.receitas)
-    despesas = somaNumeros (usuariox.despesas)
+    receitas = somaNumeros(receitas)
+    despesas = somaNumeros (despesas)
 
-    var soma = receitas - despesas
-    
-    if (soma >= 0){
-        console.log (`${usuariox.nome} possui saldo POSITIVO de ${soma}`)
-    } else{
-        console.log(`${usuariox.nome} possui saldo NEGATIVO de ${soma}`)
+    var resultado = receitas - despesas
+
+    return resultado
+}
+
+
+
+for (let pessoa of pessoas){
+    var saldo = calculaSaldo(pessoa.receitas, pessoa.despesas)
+
+    if (saldo >= 0){
+        console.log(`${pessoa.nome} possui saldo POSITIVO de ${saldo}`)
+    } else {
+        console.log(`${pessoa.nome} possui saldo NEGATIVO de ${saldo}`)
     }
-}  
-
-function somaNumeros (numeros){
-
 }
